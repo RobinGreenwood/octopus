@@ -1,0 +1,74 @@
+.sign-up-form{
+  margin-top: 60px;
+  .btn{
+    margin-top: 20px;
+  }
+  .form-control{
+    margin-bottom: 20px;
+  }
+}
+.text-muted{
+  width: 100%;
+}
+.field_with_errors {
+  .form-control {
+    border-color: red;
+  }
+}
+.new-card-form{
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: .25rem;
+  border: 1px solid #ddd;
+  .form-control{
+    margin: 20px 0;
+  }
+}
+.animate-show {
+  line-height: 20px;
+  opacity: 1;
+  padding: 10px;
+  border: 1px solid black;
+  background: white;
+}
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+.cardheader{
+  display: inline-block;
+  width: 100%;
+
+  .card-number{
+    float: left;
+    width: 50%;
+  }
+  .btngroup{
+    float: right;
+  }
+}
+.animate-show.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
+.card-details{
+  width: 100%;
+  padding-top: 10px;
+   border-top: 1px solid #ddd;
+}
+.check-element {
+  padding: 10px;
+  border: 1px solid black;
+  background: white;
+}
+.add-new-btn{
+  margin-bottom: 20px;
+}
+.add-item{
+  margin-top: 30px;
+}
+.nav a{
+  color:#fff;
+}
+

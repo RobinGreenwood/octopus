@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="octopusApp">
+  <head>
+    <title>Octopus</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.min.js"></script>
+
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="collapse" id="exCollapsingNavbar">
+      <div class="bg-inverse p-a-1">
+        <ul class="nav navbar-nav">
+        <% if logged_in? %>
+          <span class="text-muted"><%= link_to "My Cards", current_user %></span></br>
+          <span class="text-muted"><%= link_to "Log out", logout_path, method: "delete" %></span>
+        <% else %>
+          <span class="text-muted"><li><%= link_to "Log in", login_path %></li></span>
+        <% end %>
+      </div>
+    </div>
+    <nav class="navbar navbar-light navbar-full bg-faded">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+        &#9776;
+      </button>
+    </nav>
+     <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    <%= yield %>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  </body>
+</html>
