@@ -9,7 +9,7 @@ Octopus::Application.routes.draw do
   #   get '/', to: 'users#create', as: 'signup_path'
   # end
   resources :users
-  get '/profile', to: 'users#show', as: 'profile_path'
+  get '/profile', to: 'users#show', as: 'profile'
 
   post 'cards', to: 'cards#create'
 

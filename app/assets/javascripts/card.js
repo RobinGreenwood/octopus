@@ -9,7 +9,6 @@ angular.module('octopusApp', [])
     $scope.number = 'Card Number';
     $scope.cvv = "CVV";
 
-    console.log("here:::::: " + $scope.cards);
 
     $scope.add = function() {
       $scope.cards.push({
@@ -35,4 +34,19 @@ angular.module('octopusApp', [])
         $scope.saved = true;
       });
     };
+
+
+    $scope.saveEdit =function(){
+      $http.put(
+        '/cards',
+        {
+          number: $scope.c.number,
+          cvv: $scope.c.cvv
+        }
+      ).error(function(data, status) {
+        sweetAlert("Oops...", "Error saving cart. Please try again later.", "error");
+      }).success(function(data, status) {
+        $scope.saved = true;
+      });
+    }
   }]);

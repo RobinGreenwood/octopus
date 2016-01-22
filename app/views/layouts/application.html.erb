@@ -21,7 +21,7 @@
       <div class="bg-inverse p-a-1">
         <ul class="nav navbar-nav">
         <% if logged_in? %>
-          <span class="text-muted"><%= link_to "My Cards", current_user %></span></br>
+          <span class="text-muted"><%= link_to "My Cards", profile_path %></span></br>
           <span class="text-muted"><%= link_to "Log out", logout_path, method: "delete" %></span>
         <% else %>
           <span class="text-muted"><li><%= link_to "Log in", login_path %></li></span>

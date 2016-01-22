@@ -22,8 +22,14 @@
               <input class="btn-block btn btn-info" type="submit" value="Save New Card">
             </form>
 
-            <div ng-show="saved" class="list-group-item list-group-item-success">
-              <div class="card-number">You have saved card: {{number}}</div>
+            <div ng-show="saved" class="saved-item list-group-item-success">
+              <div class="cardheader">
+                <div class="card-number">Card saved: {{number}}</div>
+                <div class="btngroup">
+                  <button class="btn btn-secondary" aria-label="Toggle ngHide" ng-model="edit" ng-click="showDetails = ! showDetails">Info</button>
+                  <button class="btn btn-info-outline" aria-label="Toggle ngHide" ng-model="edit" ng-click="editDetails = ! editDetails">Edit</button>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -40,16 +46,15 @@
               </div>
               <div ng-show="showDetails" class="card-details">{{c.cvv}}</div>
               <div ng-show="editDetails">
-                <form ng-submit="cards.addCard()" class="new-card-form">
-                  <input type="text" ng-model="card.number" class="form-control" placeholder="add card number">
-                  <input type="text" ng-model="card.cvv" class="form-control" placeholder="CVV">
-                  <input class="btn-block btn btn-info" type="submit" value="Save">
+
+                <form ng-submit="c.saveEdit()" class="new-card-form">
+                  <input type="text" ng-model="c.number" class="form-control" placeholder="add card number">
+                  <input type="text" ng-model="c.cvv" class="form-control" placeholder="CVV">
+                  <input class="btn-block btn btn-info" type="submit" value="Save it">
                 </form>
+
               </div>
             </li>
-
-
-
           </div>
         </ul>
       </div>

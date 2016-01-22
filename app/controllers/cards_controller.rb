@@ -12,12 +12,19 @@ class CardsController < ApplicationController
   def create
     @card = Card.new(card_params)
     if @card.save
-      flash[:success] = "You've successfully added your card"
       render '/users/show'
     else
       render 'new'
     end
   end
+
+  def update
+    @card = Card.find_by_id(params[:id])
+    if @card.update(card_params)
+      render '/users/show'
+    else
+      render 'new'
+    end
 
   private
 
